@@ -7,6 +7,6 @@ project(
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-include(CTEST)
+include(CTest)
 
 add_subdirectory(LinearList/SequenceList)

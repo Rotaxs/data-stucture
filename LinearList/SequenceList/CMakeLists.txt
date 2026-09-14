@@ -38,3 +38,30 @@ target_link_libraries(sequence_list_demo
     PRIVATE 
         sequence_list
 )
+
+# ================= CTEST ==========================
+
+if (BUILD_TESTING)
+    add_executable(sequence_list_tests)
+    
+    target_sources(sequence_list_tests
+        PRIVATE 
+            tests/test_sequence_list.c
+    )
+
+    target_link_libraries(sequence_list_tests
+        PRIVATE 
+            sequence_list
+    )
+
+    foreach (case IN ITEMS insert delete modify query flip handswap)
+        add_test(
+            NAME sequence_list.${case}
+            COMMAND sequence_list_tests ${case}
+        )
+
+        set_tests_properties(sequence_list.${case} PROPERTIES
+            LABELS "sequence_list"
+        )
+    endforeach()
+endif()
