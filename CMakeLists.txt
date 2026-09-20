@@ -23,3 +23,4 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(SDL3)
 
 add_subdirectory(LinearList/SequenceList)
+add_subdirectory(LinearList/LinkedList)
